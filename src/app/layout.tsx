@@ -1,3 +1,6 @@
+import ThemeProvider from '@/store/theme-context';
+import { cookies } from 'next/headers';
+
 import { GeistSans } from 'geist/font/sans';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
@@ -8,12 +11,20 @@ export const metadata: Metadata = {
 	description: 'Lepsze quizy, nawet od Kahoot!',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+	children,
+}: {
+	children: ReactNode;
+}) {
+	const theme = (await cookies()).get('theme') ?? 'dark';
+
 	return (
-		<html lang="pl" className={`${GeistSans.variable} dark`}>
-			<body className={`${GeistSans.className} antialiased`}>
-				{children}
-			</body>
-		</html>
+		<ThemeProvider>
+			<html lang="pl" className={`${GeistSans.variable} ${theme}`}>
+				<body className={`${GeistSans.className} antialiased`}>
+					{children}
+				</body>
+			</html>
+		</ThemeProvider>
 	);
 }
