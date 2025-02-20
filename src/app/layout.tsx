@@ -2,7 +2,7 @@ import ThemeProvider from '@/store/theme-context';
 import { cookies } from 'next/headers';
 
 import { GeistSans } from 'geist/font/sans';
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -11,11 +11,7 @@ export const metadata: Metadata = {
 	description: 'Lepsze quizy, nawet od Kahoot!',
 };
 
-export default async function RootLayout({
-	children,
-}: {
-	children: ReactNode;
-}) {
+export default async function RootLayout({ children }: PropsWithChildren) {
 	const theme = (await cookies()).get('theme') ?? 'dark';
 
 	return (
