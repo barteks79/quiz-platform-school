@@ -1,4 +1,5 @@
 import ThemeProvider from '@/store/theme-context';
+import Navigation from '@/components/navigation/navigation';
 import { cookies } from 'next/headers';
 
 import { GeistSans } from 'geist/font/sans';
@@ -18,7 +19,10 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 		<ThemeProvider>
 			<html lang="pl" className={`${GeistSans.variable} ${theme}`}>
 				<body className={`${GeistSans.className} antialiased`}>
-					{children}
+					<div className="block w-3/5 mx-auto h-screen border-x">
+						<Navigation />
+						{children}
+					</div>
 				</body>
 			</html>
 		</ThemeProvider>
