@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 	description: 'Lepsze quizy, nawet od Kahoot!',
 };
 
-export default async function RootLayout({ children }: PropsWithChildren) {
+export default function RootLayout({ children }: PropsWithChildren) {
 	return (
 		<html lang="pl" className={`${GeistSans.variable}`}>
 			<body className={`${GeistSans.className} antialiased`}>
