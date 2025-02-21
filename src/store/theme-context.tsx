@@ -1,18 +1,41 @@
 'use client';
 
-import { useContext, createContext, type PropsWithChildren } from 'react';
-import { saveThemeCookie } from '@/server/actions';
+import {
+	useState,
+	useEffect,
+	useContext,
+	createContext,
+	type PropsWithChildren,
+	type Dispatch,
+	type SetStateAction,
+} from 'react';
 
 export type Theme = 'light' | 'dark';
 
 const ThemeContext = createContext<{
-	handleThemeChange: (theme: Theme) => void;
+	theme: Theme;
+	setTheme: Dispatch<SetStateAction<Theme>>;
 }>({
-	handleThemeChange: async () => {},
+	theme: 'dark',
+	setTheme: () => {},
 });
 
 export default function ThemeProvider({ children }: PropsWithChildren) {
-	const contextValue = { handleThemeChange: saveThemeCookie };
+	const [theme, setTheme] = useState<Theme>('light');
+
+	useEffect(() => {
+		const storedTheme = localStorage.getItem('theme');
+		if (storedTheme === 'light' || storedTheme === 'dark')
+			setTheme(storedTheme);
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('theme', theme);
+		document.documentElement.classList.remove('light', 'dark');
+		document.documentElement.classList.add(theme);
+	}, [theme]);
+
+	const contextValue = { theme, setTheme };
 	return <ThemeContext value={contextValue}>{children}</ThemeContext>;
 }
 

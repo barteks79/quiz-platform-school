@@ -1,6 +1,5 @@
 import ThemeProvider from '@/store/theme-context';
 import Navigation from '@/components/navigation/navigation';
-import { cookies } from 'next/headers';
 
 import { GeistSans } from 'geist/font/sans';
 import type { PropsWithChildren } from 'react';
@@ -13,18 +12,16 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-	const theme = (await cookies()).get('theme') ?? 'dark';
-
 	return (
-		<ThemeProvider>
-			<html lang="pl" className={`${GeistSans.variable} ${theme}`}>
-				<body className={`${GeistSans.className} antialiased`}>
+		<html lang="pl" className={`${GeistSans.variable}`}>
+			<body className={`${GeistSans.className} antialiased`}>
+				<ThemeProvider>
 					<div className="block w-3/5 mx-auto h-screen border-x">
 						<Navigation />
 						{children}
 					</div>
-				</body>
-			</html>
-		</ThemeProvider>
+				</ThemeProvider>
+			</body>
+		</html>
 	);
 }
