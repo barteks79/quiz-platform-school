@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '../ui/button';
 import { useTheme, type Theme } from '@/store/theme-context';
 import { SunIcon, MoonIcon } from 'lucide-react/icons';
 
@@ -7,12 +8,11 @@ export default function ThemeSwitcher() {
 	const { theme, setTheme } = useTheme();
 	const changedTheme: Theme = theme === 'dark' ? 'light' : 'dark';
 
+	const handleSwitchTheme = () => setTheme(changedTheme);
+
 	return (
-		<button
-			onClick={() => setTheme(changedTheme)}
-			className="text-foreground hover:bg-accent p-2 rounded-md transition-colors"
-		>
-			{theme === 'dark' ? <SunIcon size={18} /> : <MoonIcon size={18} />}
-		</button>
+		<Button size="icon" variant="ghost" onClick={handleSwitchTheme}>
+			{theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+		</Button>
 	);
 }
