@@ -16,12 +16,20 @@ export default function RootLayout({ children }: PropsWithChildren) {
 		<html lang="pl" className={`${GeistSans.variable}`}>
 			<body className={`${GeistSans.className} antialiased`}>
 				<ThemeProvider>
-					<div className="block w-3/5 mx-auto h-screen border-x">
+					<MainWrapper>
 						<Navigation />
 						{children}
-					</div>
+					</MainWrapper>
 				</ThemeProvider>
 			</body>
 		</html>
+	);
+}
+
+function MainWrapper({ children }: PropsWithChildren) {
+	return (
+		<div className="min-w-[768px] w-3/5 mx-auto h-screen border-dashed md:border-x">
+			{children}
+		</div>
 	);
 }

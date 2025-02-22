@@ -4,7 +4,7 @@ import SearchBar from '../custom/search-bar';
 
 export default function Navigation() {
 	return (
-		<nav className="flex items-center gap-4 h-14 px-6 border-b">
+		<nav className="flex items-center gap-4 h-14 px-6 border-dashed border-b">
 			<ul className="flex space-x-4 xl:space-x-6">
 				<NavItem href="/">Home</NavItem>
 				<NavItem href="/explore">Explore</NavItem>
