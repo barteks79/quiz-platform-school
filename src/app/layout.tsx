@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
 	return (
-		<html lang="pl" className={`${GeistSans.variable}`}>
+		<html lang="pl" className={`${GeistSans.variable} dark`}>
 			<body className={`${GeistSans.className} antialiased`}>
 				<ThemeProvider>
 					<MainWrapper>
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
 function MainWrapper({ children }: PropsWithChildren) {
 	return (
-		<div className="min-w-[768px] w-3/5 mx-auto h-screen border-dashed md:border-x">
+		<div className="max-w-full md:max-w-[70%] mx-auto h-screen border-dashed md:border-x transition-[max-width] duration-300 ease-in-out">
 			{children}
 		</div>
 	);
