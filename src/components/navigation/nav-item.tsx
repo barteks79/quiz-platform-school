@@ -14,7 +14,7 @@ export default function NavItem({ href, children }: NavItemProps) {
 	const isActive = pathname === href;
 
 	return (
-		<li className="text-sm">
+		<li>
 			<Link
 				href={href}
 				className={cn('transition-colors px-1 py-0.5 text-foreground/80', {
