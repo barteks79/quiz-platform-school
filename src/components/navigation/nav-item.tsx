@@ -7,9 +7,16 @@ import Link from 'next/link';
 
 type NavItemProps = {
 	href: string;
+	className?: string;
+	onClick?: () => void;
 } & PropsWithChildren;
 
-export default function NavItem({ href, children }: NavItemProps) {
+export default function NavItem({
+	href,
+	children,
+	className,
+	onClick,
+}: NavItemProps) {
 	const pathname = usePathname();
 	const isActive = pathname === href;
 
@@ -17,9 +24,14 @@ export default function NavItem({ href, children }: NavItemProps) {
 		<li>
 			<Link
 				href={href}
-				className={cn('transition-colors px-1 py-0.5 text-foreground/80', {
-					'hover:text-foreground/80 text-foreground': isActive,
-				})}
+				onClick={onClick}
+				className={cn(
+					'transition-colors px-1 py-0.5 text-foreground/80',
+					className,
+					{
+						'hover:text-foreground/80 text-foreground': isActive,
+					}
+				)}
 			>
 				{children}
 			</Link>
