@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import CommandBox from './command-box';
+import CommandBox from '@/components/custom/command-box';
 
 export default function SearchBar() {
 	const [isOpen, setIsOpen] = useState<boolean>(false);

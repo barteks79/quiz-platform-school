@@ -8,8 +8,8 @@ import {
 	DrawerContent,
 	DrawerTitle,
 } from '@/components/ui/drawer';
+import NavItem from '@/components/navigation/nav-item';
 import { MenuIcon } from 'lucide-react';
-import NavItem from '../navigation/nav-item';
 
 export default function HamburgerMenu() {
 	const [isOpen, setIsOpen] = useState<boolean>(false);

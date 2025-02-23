@@ -1,7 +1,7 @@
-import NavItem from './nav-item';
-import ThemeSwitcher from '../custom/theme-switcher';
-import SearchBar from '../custom/search-bar';
-import HamburgerMenu from '../custom/hamburger-menu';
+import NavItem from '@/components/navigation/nav-item';
+import ThemeSwitcher from '@/components/custom/theme-switcher';
+import SearchBar from '@/components/custom/search-bar';
+import HamburgerMenu from '@/components/custom/hamburger-menu';
 import GitRepoIcon from '@/components/custom/git-repo-icon';
 
 export default function Navigation() {

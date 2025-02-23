@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import { useTheme, type Theme } from '@/store/theme-context';
 import { SunIcon, MoonIcon } from 'lucide-react/icons';
 
