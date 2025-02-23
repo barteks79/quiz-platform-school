@@ -2,6 +2,7 @@ import NavItem from './nav-item';
 import ThemeSwitcher from '../custom/theme-switcher';
 import SearchBar from '../custom/search-bar';
 import HamburgerMenu from '../custom/hamburger-menu';
+import GitRepoIcon from '@/components/custom/git-repo-icon';
 
 export default function Navigation() {
 	return (
@@ -15,8 +16,9 @@ export default function Navigation() {
 				<NavItem href="/sign-up">Sign Up</NavItem>
 			</ul>
 
-			<ul className="flex flex-1 justify-between gap-2 w-full md:justify-end">
+			<ul className="flex flex-1 items-center justify-between gap-1 w-full md:justify-end">
 				<SearchBar />
+				<GitRepoIcon />
 				<ThemeSwitcher />
 			</ul>
 		</nav>

@@ -19,7 +19,7 @@ export default function SearchBar() {
 	}, []);
 
 	return (
-		<div className="flex-1 w-full md:flex-none md:w-auto">
+		<div className="flex-1 w-full md:flex-none md:w-auto pr-1">
 			<Button
 				onClick={() => setIsOpen(true)}
 				className="justify-start bg-muted/50 text-muted-foreground hover:bg-accent hover:text-foreground border border-input w-full h-8 relative md:w-56 lg:w-64 font-normal"
