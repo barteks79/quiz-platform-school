@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -22,7 +19,6 @@ type CommandBoxProps = {
 	setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-// tslint:disable-block
 export default function CommandBox({
 	isOpen,
 	setIsOpen,
