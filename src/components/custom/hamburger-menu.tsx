@@ -2,15 +2,14 @@
 
 import { useState } from 'react';
 
-import NavItem from '../navigation/nav-item';
-import { MenuIcon } from 'lucide-react';
-
 import {
 	Drawer,
 	DrawerTrigger,
 	DrawerContent,
 	DrawerTitle,
 } from '@/components/ui/drawer';
+import { MenuIcon } from 'lucide-react';
+import NavItem from '../navigation/nav-item';
 
 export default function HamburgerMenu() {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -27,14 +26,26 @@ export default function HamburgerMenu() {
 					<MenuIcon size={20} />
 				</button>
 			</DrawerTrigger>
-			<DrawerContent>
-				<DrawerTitle />
+			<DrawerContent aria-describedby="drawer-navigation">
+				<DrawerTitle className="mt-2 mb-1 mx-4">Quiz</DrawerTitle>
 				<ul className="flex flex-col gap-3 p-3 text-base">
 					<NavItem onClick={handleCloseDrawer} href="/">
 						Home
 					</NavItem>
+
 					<NavItem onClick={handleCloseDrawer} href="/explore">
 						Explore
+					</NavItem>
+				</ul>
+
+				<DrawerTitle className="mt-2 mb-1 mx-4">Profile</DrawerTitle>
+				<ul className="flex flex-col gap-3 p-3 text-base">
+					<NavItem onClick={handleCloseDrawer} href="/sign-in">
+						Login
+					</NavItem>
+
+					<NavItem onClick={handleCloseDrawer} href="/sign-up">
+						Sign Up
 					</NavItem>
 				</ul>
 			</DrawerContent>
