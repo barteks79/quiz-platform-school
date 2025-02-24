@@ -35,7 +35,7 @@ export default function SignUpForm() {
 	return (
 		<Form {...form}>
 			<form
-				className="flex flex-col gap-6 px-4 sm:px-0"
+				className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-0"
 				onSubmit={form.handleSubmit(onSubmit)}
 			>
 				<FormField
