@@ -25,3 +25,14 @@ export const SignUpSchema = z
 		message: 'Passwords do not match.',
 		path: ['confirmPassword'],
 	});
+
+export const LoginSchema = z.object({
+	email: z
+		.string()
+		.email('Invalid email address.')
+		.max(75, 'Email must be at most 75 characters long.'),
+	password: z
+		.string()
+		.min(8, 'Password must be at least 8 characters long.')
+		.max(50, 'Password must be at most 50 characters long.'),
+});
